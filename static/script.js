@@ -82,7 +82,7 @@ const populateBotResponse = async (userMessage) => {
   if (isFirstMessage) {
     response = { botResponse: "Hello there! I'm your friendly data assistant, ready to answer any questions regarding your data. Could you please upload a PDF file for me to analyze?"};
     uploadButtonHtml = `
-        <input type="file" id="file-upload" accept=".pdf" hidden>
+        <input type="file" id="file-upload" accept=".txt" hidden>
         <button id="upload-button" class="btn btn-primary btn-sm">Upload File</button>
     `;
 
@@ -103,17 +103,13 @@ const populateBotResponse = async (userMessage) => {
 
       await showBotLoadingAnimation();
 
-      // Create a new FormData instance
       const formData = new FormData();
-
-      // Append the file to the FormData instance
       formData.append('file', file);
 
-      // Now send this data to /process-document endpoint
-      let response = await fetch(baseUrl + "/process-document", {
+      let response = await fetch(baseUrl + "/extend_knowledge", {
         method: "POST",
         headers: { Accept: "application/json" }, // "Content-Type" should not be explicitly set here, the browser will automatically set it to "multipart/form-data"
-        body: formData, // send the FormData instance as the body
+        body: formData,
       });
 
       if (response.status !== 400) {
@@ -126,7 +122,7 @@ const populateBotResponse = async (userMessage) => {
     });
 
 
-    isFirstMessage = false; // after the first message, set this to false
+    isFirstMessage = false;
   }
 };
 
@@ -146,11 +142,7 @@ populateBotResponse()
 
 
 $(document).ready(function () {
-
-  //start the chat with send button disabled
   document.getElementById('send-button').disabled = true;
-
-  // Listen for the "Enter" key being pressed in the input field
   $("#message-input").keyup(function (event) {
     let inputVal = cleanTextInput($("#message-input").val());
 
@@ -164,9 +156,7 @@ $(document).ready(function () {
     inputVal = $("#message-input").val();
   });
 
-  // When the user clicks the "Send" button
   $("#send-button").click(async function () {
-  // Get the message the user typed in
   const message = cleanTextInput($("#message-input").val());
 
   populateUserMessage(message, null);
@@ -174,26 +164,17 @@ $(document).ready(function () {
 
   });
 
-  //reset chat
-  // When the user clicks the "Reset" button
     $("#reset-button").click(async function () {
-      // Clear the message list
       $("#message-list").empty();
 
-      // Reset the responses array
       responses.length = 0;
-
-      // Reset isFirstMessage flag
       isFirstMessage = true;
 
       document.querySelector('#upload-button').disabled = false;
-
-      // Start over
       populateBotResponse();
     });
 
 
-  // handle the event of switching light-dark mode
   $("#light-dark-mode-switch").change(function () {
     $("body").toggleClass("dark-mode");
     $(".message-box").toggleClass("dark");
