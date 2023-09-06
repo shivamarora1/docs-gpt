@@ -26,7 +26,7 @@ OPENAI_API_KEY="OPEN-AI-KEY"
 1. This project uses OPEN AI as LLM model , so calling its api would cost you money.
 
 ### Demo:
-![Demo](https://github.com/shivamarora1/docs-gpt/blob/main/static/demo.gif)
+![Demo](static/demo.gif)
 
 
 ### Working details
