@@ -26,7 +26,8 @@ OPENAI_API_KEY="OPEN-AI-KEY"
 1. This project uses OPEN AI as LLM model , so calling its api would cost you money.
 
 ### Demo:
-![Demo](static/demo.gif)
+![Demo]([static/demo.gif](https://shivamreloaded.com/ai/2023/09/06/custom-qa-bot.html))
+
 
 ### Working details
 https://shivamreloaded.com/ai/2023/09/06/custom-qa-bot.html
