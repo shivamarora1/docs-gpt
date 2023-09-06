@@ -28,7 +28,10 @@ OPENAI_API_KEY="OPEN-AI-KEY"
 1. This project uses OPEN AI as LLM model , so calling its api would cost you money.
 
 ### Demo:
+![Demo](static/demo.gif)
+
+### Working details
+https://shivamreloaded.com/
 
 #### Todo:
 1. Clear previous intelligence whenever new document is uploaded.
-2. Make dockerfile working.
