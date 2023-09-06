@@ -1,5 +1,3 @@
-https://blog.langchain.dev/retrieval/
-
 ## DocGPT
 Extend the knowledge of your LLM with TXT document. Upload any TXT and start asking questions related to that TXT file. Using this project you can train your LLM to any new data and then ask questions related to that. LLM would be able to fetch insights or answers from that document and make meaning ful answers from that.
 
@@ -31,7 +29,6 @@ OPENAI_API_KEY="OPEN-AI-KEY"
 ![Demo](static/demo.gif)
 
 ### Working details
-https://shivamreloaded.com/
+https://shivamreloaded.com/ai/2023/09/06/custom-qa-bot.html
 
-#### Todo:
-1. Clear previous intelligence whenever new document is uploaded.
+
